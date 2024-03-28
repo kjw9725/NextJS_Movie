@@ -3,7 +3,9 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
-
+.container img {
+  width: 185px;
+}
 .alterImg {
   display: flex;
   width: 185px;
@@ -11,4 +13,7 @@
   background-color: #ccc;
   justify-content: center;
   align-items: center;
+}
+.title {
+  max-width: 185px;
 }

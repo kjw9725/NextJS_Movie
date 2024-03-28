@@ -24,11 +24,11 @@ export default async function MovieCredit({ id }: IMovieId) {
             {credit.profile_path ? (
               <img src={credit.profile_path} alt="cast-img" />
             ) : (
-              <div className={styles.alterImg}>No-image</div>
+              <div className={styles.alterImg}>No image</div>
             )}
 
             <div>{credit.name}</div>
-            <div>{credit.character}</div>
+            <div>{credit.character} 역</div>
           </div>
         );
       })}
