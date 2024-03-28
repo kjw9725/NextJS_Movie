@@ -1,0 +1,20 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+.container img {
+  width: 250px;
+}
+.container h1 {
+  font-size: 28px;
+  font-weight: bold;
+}
+.infoBox {
+  height: 100%;
+}
+.infoBox h4 {
+  margin-top: 8px;
+  margin-bottom: 15px;
+}

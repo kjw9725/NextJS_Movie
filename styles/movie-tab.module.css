@@ -1,0 +1,22 @@
+/* .container {
+  display: flex;
+} */
+.tab {
+  display: flex;
+  height: 60px;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+.tab li {
+  width: 25%;
+  display: flex;
+  background-color: #808080;
+  list-style: none;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+.tab li:hover {
+  background-color: #9370db;
+}
