@@ -22,11 +22,14 @@ export default async function MovieSimilar({ id }: IMovieId) {
   const similar = await getSimilar(id);
 
   const onModal = (e: React.MouseEvent<HTMLDivElement>) => {
-    const modalMovie = JSON.parse(
-      e.currentTarget.getAttribute('data-movie') || '',
-    );
-    setIsOpenModal(!isOpenModal);
-    setSelectedMovie(modalMovie);
+    if (isOpenModal) {
+      setIsOpenModal(!isOpenModal);
+    } else {
+      const modalMovie = JSON.parse(
+        e.currentTarget.getAttribute('data-movie') || '',
+      );
+      setSelectedMovie(modalMovie);
+    }
   };
   return (
     <div className={styles.container}>
@@ -46,7 +49,11 @@ export default async function MovieSimilar({ id }: IMovieId) {
           </div>
         );
       })}
-      <MovieModal isOpen={isOpenModal} selectedMovie={selectedMovie} />
+      <MovieModal
+        isOpen={isOpenModal}
+        selectedMovie={selectedMovie}
+        onClose={() => setIsOpenModal(false)} // 모달 닫기 함수
+      />
     </div>
   );
 }
