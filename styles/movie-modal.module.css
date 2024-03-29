@@ -1,0 +1,19 @@
+.container {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: #0000004f;
+}
+.modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 50%;
+  border: 1px solid #fff;
+  transform: translate(-50%, -50%);
+  background: gray;
+  padding: 50px;
+}

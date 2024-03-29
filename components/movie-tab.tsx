@@ -7,13 +7,13 @@ import MovieProvider from './movie-provider';
 import MovieSimilar from './movie-similar';
 
 export default function MovieTab({ id }: IMovieId) {
-  const [tab, setTab] = useState('0');
+  const [tab, setTab] = useState(0);
 
   const onChange = (e: React.MouseEvent<HTMLLIElement>) => {
-    const dataID = e.currentTarget.dataset.id;
-    console.log(typeof dataID);
+    const dataID = parseInt(e.currentTarget.dataset.id);
     setTab(dataID);
   };
+
   return (
     <div>
       <div className={styles.tab}>
@@ -30,32 +30,12 @@ export default function MovieTab({ id }: IMovieId) {
           배급
         </li>
       </div>
-      {tab === '0' && (
-        <Suspense fallback="Loading...">
-          <MovieCredit id={id} />
-        </Suspense>
-      )}
-      {tab === '1' && (
-        <div>
-          <Suspense fallback="Loading...">
-            <MovieVideo id={id} />
-          </Suspense>
-        </div>
-      )}
-      {tab === '2' && (
-        <div>
-          <Suspense fallback="Loading...">
-            <MovieSimilar id={id} />
-          </Suspense>
-        </div>
-      )}
-      {tab === '3' && (
-        <div>
-          <Suspense fallback="Loading...">
-            <MovieProvider id={id} />
-          </Suspense>
-        </div>
-      )}
+      <Suspense fallback="Loading...">
+        {tab === 0 && <MovieCredit key={0} id={id} />}
+        {tab === 1 && <MovieVideo key={1} id={id} />}
+        {tab === 2 && <MovieSimilar key={2} id={id} />}
+        {tab === 3 && <MovieProvider key={3} id={id} />}
+      </Suspense>
     </div>
   );
 }
