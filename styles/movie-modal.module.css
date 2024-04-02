@@ -7,6 +7,7 @@
   background: #0000004f;
 }
 .modal {
+  display: flex;
   position: fixed;
   top: 50%;
   left: 50%;
@@ -14,6 +15,13 @@
   height: 50%;
   border: 1px solid #fff;
   transform: translate(-50%, -50%);
-  background: gray;
+  background: #fff;
   padding: 50px;
+  color: black;
+}
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  cursor: pointer;
 }

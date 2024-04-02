@@ -3,6 +3,9 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
 }
+.content {
+  cursor: pointer;
+}
 .container img {
   width: 185px;
 }

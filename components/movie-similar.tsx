@@ -15,21 +15,14 @@ const getSimilar = async (id: string) => {
 };
 
 export default async function MovieSimilar({ id }: IMovieId) {
-  const [isOpenModal, setIsOpenModal] = useState(false);
-  const [selectedMovie, setSelectedMovie] = useState<
-    ISimilarType | undefined
-  >();
+  const [selectedMovie, setSelectedMovie] = useState<ISimilarType | null>(null);
   const similar = await getSimilar(id);
 
-  const onModal = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (isOpenModal) {
-      setIsOpenModal(!isOpenModal);
-    } else {
-      const modalMovie = JSON.parse(
-        e.currentTarget.getAttribute('data-movie') || '',
-      );
-      setSelectedMovie(modalMovie);
-    }
+  const onModal = (movie: ISimilarType) => {
+    setSelectedMovie(movie);
+  };
+  const closeModal = () => {
+    setSelectedMovie(null);
   };
   return (
     <div className={styles.container}>
@@ -37,8 +30,8 @@ export default async function MovieSimilar({ id }: IMovieId) {
         return (
           <div
             key={similar.id}
-            data-movie={JSON.stringify(similar)}
-            onClick={onModal}
+            onClick={() => onModal(similar)}
+            className={styles.content}
           >
             {similar.poster_path ? (
               <img src={similar.poster_path} alt="cast-img" />
@@ -50,9 +43,8 @@ export default async function MovieSimilar({ id }: IMovieId) {
         );
       })}
       <MovieModal
-        isOpen={isOpenModal}
-        selectedMovie={selectedMovie}
-        onClose={() => setIsOpenModal(false)} // 모달 닫기 함수
+        movie={selectedMovie}
+        onClose={closeModal} // 모달 닫기 함수
       />
     </div>
   );

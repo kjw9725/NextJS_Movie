@@ -129,6 +129,8 @@ body {
   padding-top: 80px;
   background-color: black;
   color: #fff;
+  margin-bottom: 80px;
+  line-height: 1.25;
 }
 a {
   color: #fff;
