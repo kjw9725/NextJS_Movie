@@ -17,6 +17,8 @@ export default async function MovieModal({
         <Image src={movie.poster_path} alt="poster" width={200} height={300} />
         <div>
           <div>{movie.title}</div>
+          <div>⭐{movie.vote_average.toFixed(1)}</div>
+          <div>{movie.overview}</div>
         </div>
         <div onClick={onClose} data-movie={movie} className={styles.closeBtn}>
           <CloseBtn />

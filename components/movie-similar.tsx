@@ -7,6 +7,7 @@ export interface ISimilarType {
   title: string;
   poster_path: string;
   id: number;
+  vote_average: number;
 }
 
 const getSimilar = async (id: string) => {
